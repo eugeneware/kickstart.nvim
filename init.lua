@@ -411,6 +411,8 @@ require('lazy').setup({
     end,
   },
 
+  -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -880,7 +882,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
 
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
