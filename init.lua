@@ -881,7 +881,6 @@ require('lazy').setup({
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
-  require 'custom.netrw_config',
 
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
