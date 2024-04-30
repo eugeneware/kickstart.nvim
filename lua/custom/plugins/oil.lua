@@ -66,7 +66,8 @@ return {
         ['<C-t>'] = 'actions.select_tab',
         ['<C-p>'] = 'actions.preview',
         ['<C-c>'] = 'actions.close',
-        ['<C-l>'] = 'actions.refresh',
+        ['<C-l>'] = require('nvim-tmux-navigation').NvimTmuxNavigateRight,
+        ['<C-r>'] = 'actions.refresh',
         ['-'] = 'actions.parent',
         ['_'] = 'actions.open_cwd',
         ['`'] = 'actions.cd',
@@ -175,11 +176,6 @@ return {
       ssh = {
         border = 'rounded',
       },
-    }
-
-    vim.g.oil_map = {
-      ['<C-l>'] = ':TmuxNavigateRight<CR>',
-      ['<C-r>'] = '<Plug>NetrwRefresh',
     }
 
     vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
