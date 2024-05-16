@@ -40,6 +40,20 @@ return {
       { noremap = true, silent = true, desc = 'Send code cell' }
     )
 
+    vim.api.nvim_set_keymap(
+      'n',
+      '<Leader>xv',
+      ':lua select_code_cell()<CR>',
+      { noremap = true, silent = true, desc = 'Select code cell' }
+    )
+
+    vim.api.nvim_set_keymap(
+      'n',
+      '<Leader>xy',
+      ':lua select_code_cell()<CR>y',
+      { noremap = true, silent = true, desc = 'Copy code cell' }
+    )
+
     map('n', '<leader>xs', ':SlimuxREPLSendLine<CR>', { noremap = true, silent = true, desc = 'Send line to REPL' })
     map('n', '<leader>xp', ':SlimuxREPLSendParagraph<CR>', { noremap = true, silent = true, desc = 'Send paragraph to REPL' })
     map('v', '<leader>xs', ':SlimuxREPLSendSelection<CR>', { noremap = true, silent = true, desc = 'Send selection to REPL' })
