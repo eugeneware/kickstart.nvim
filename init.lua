@@ -372,7 +372,7 @@ require('lazy').setup({
             },
           },
           preview = {
-            hide_on_startup = false, -- hide previewer when picker starts
+            hide_on_startup = true, -- hide previewer when picker starts
           },
         },
         pickers = {
