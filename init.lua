@@ -282,19 +282,20 @@ require('lazy').setup({
       require('which-key').setup()
 
       -- Document existing key chains
-      require('which-key').add({
-          { "<leader>c", group = "[C]ode" },
-          { "<leader>d", group = "[D]ocument" },
-          { "<leader>h", group = "Git [H]unk" },
-          { "<leader>r", group = "[R]ename" },
-          { "<leader>s", group = "[S]earch" },
-          { "<leader>t", group = "[T]oggle" },
-          { "<leader>w", group = "[W]orkspace" },
-          { "<leader>x", group = "Slimu[X]" },
+      require('which-key').add(
+        {
+          { '<leader>c', group = '[C]ode' },
+          { '<leader>d', group = '[D]ocument' },
+          { '<leader>h', group = 'Git [H]unk' },
+          { '<leader>r', group = '[R]ename' },
+          { '<leader>s', group = '[S]earch' },
+          { '<leader>t', group = '[T]oggle' },
+          { '<leader>w', group = '[W]orkspace' },
+          { '<leader>x', group = 'Slimu[X]' },
         },
         -- visual mode
         {
-          { "<leader>h", desc = "Git [H]unk", mode = "v" },
+          { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
         }
       )
     end,
