@@ -195,7 +195,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 --- keybinding to copy the current buffer path to the clipboard
 vim.keymap.set('n', '<leader>cp', ':let @+ = expand("%:p")<CR>', { desc = 'Copy current buffer path to clipboard' })
 --- keybinding to copy the current relative buffer path to the clipboard
-vim.keymap.set('n', '<leader>cr', ':let @+ = expand("%")<CR>', { desc = 'Copy relative buffer path to clipboard' })
+vim.keymap.set('n', '<leader>cr', ':let @+ = expand("%:.")<CR>', { desc = 'Copy relative buffer path to clipboard' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
