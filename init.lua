@@ -354,6 +354,7 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local actions = require 'telescope.actions'
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -365,6 +366,17 @@ require('lazy').setup({
         -- },
         pickers = {
           buffers = {
+            mappings = {
+              -- delete buffer in telescope insert mode with <c-d>
+              i = {
+                ['<c-d>'] = actions.delete_buffer,
+              },
+              -- delete buffer in telescope normal mode with dd or <c-d>
+              n = {
+                ['<c-d>'] = actions.delete_buffer,
+                ['dd'] = actions.delete_buffer,
+              },
+            },
             -- Sort buffers by most recently used
             sort_mru = true,
           },
