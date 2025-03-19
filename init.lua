@@ -364,6 +364,17 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        defaults = {
+          mappings = {
+            i = {
+              -- toggle preview with <c-p>
+              ['<C-e>'] = require('telescope.actions.layout').toggle_preview,
+            },
+          },
+          preview = {
+            hide_on_startup = false, -- hide previewer when picker starts
+          },
+        },
         pickers = {
           buffers = {
             mappings = {
