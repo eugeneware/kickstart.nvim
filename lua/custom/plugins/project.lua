@@ -6,7 +6,7 @@ return {
         scope_chdir = 'tab',
         silent_chdir = false,
         detection_methods = { 'pattern' },
-        patterns = { '.git' },
+        patterns = { '.git', '.envrc' },
       }
       local ts = require 'telescope'
       ts.load_extension 'projects'
