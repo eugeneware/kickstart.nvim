@@ -290,6 +290,7 @@ require('lazy').setup({
       require('which-key').add(
         {
           { '<leader>c', group = '[C]ode' },
+          { '<leader>g', group = '[G]it' },
           { '<leader>l', group = '[L]azy' },
           { '<leader>d', group = '[D]ocument' },
           { '<leader>h', group = 'Git [H]unk' },
