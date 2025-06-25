@@ -17,7 +17,14 @@ return {
 
       local ok, builtin = pcall(require, 'telescope.builtin')
       if ok then
-        vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = '[G]it [S]tatus (Telescope)' })
+        vim.keymap.set('n', '<leader>gs', function()
+          local file_dir = vim.fn.expand('%:p:h')
+          -- Handle oil.nvim buffers
+          if vim.startswith(file_dir, 'oil://') then
+            file_dir = string.sub(file_dir, 7) -- Remove 'oil://' prefix
+          end
+          builtin.git_status({ cwd = file_dir })
+        end, { desc = '[G]it [S]tatus (current file\'s repo)' })
         vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = '[G]it [C]ommits (Telescope)' })
       end
     end,
