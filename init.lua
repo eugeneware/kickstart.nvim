@@ -383,6 +383,9 @@ require('lazy').setup({
           },
         },
         pickers = {
+          find_files = {
+            follow = true,
+          },
           buffers = {
             mappings = {
               -- delete buffer in telescope insert mode with <c-d>
@@ -397,6 +400,11 @@ require('lazy').setup({
             },
             -- Sort buffers by most recently used
             sort_mru = true,
+          },
+          live_grep = {
+            additional_args = function()
+              return { '--follow' }
+            end,
           },
         },
         extensions = {

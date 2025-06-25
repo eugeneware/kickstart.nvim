@@ -5,12 +5,14 @@ return {
       require('project_nvim').setup {
         scope_chdir = 'tab',
         silent_chdir = false,
-        detection_methods = { 'pattern' },
-        patterns = { '.git', '.envrc' },
+        detection_methods = { 'manual' },
+        patterns = { '.project-root', '.envrc', '.git' },
+        manual_mode = true,
       }
       local ts = require 'telescope'
       ts.load_extension 'projects'
       vim.keymap.set('n', '<leader>p', ts.extensions.projects.projects, { desc = 'Pick projects' })
+      vim.keymap.set('n', '<leader>pr', function() print('Project root: ' .. vim.fn.getcwd()) end, { desc = 'Show project root' })
     end,
   },
 }
