@@ -14,7 +14,7 @@ return {
       hijack_netrw = false,
 
       view = {
-        width = 35,
+        width = 50,
         side = 'left',
       },
 
