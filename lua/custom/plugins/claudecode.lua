@@ -21,6 +21,6 @@ return {
     { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
   },
   opts = {
-    terminal_cmd = "$HOME/local/bin/claude-gocode"
+    terminal_cmd = "$HOME/local/bin/claude"
   },
 }
