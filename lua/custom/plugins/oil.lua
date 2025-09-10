@@ -76,6 +76,16 @@ return {
         ['gx'] = 'actions.open_external',
         ['g.'] = 'actions.toggle_hidden',
         ['g\\'] = 'actions.toggle_trash',
+        ['<leader>ip'] = function()
+          -- paste the currently selecte image in oil to the buffer attached to oil
+          local oil = require('oil')
+          local filename = oil.get_cursor_entry().name
+          local dir = oil.get_current_dir()
+          oil.close()
+
+          local img_clip = require('img-clip')
+          img_clip.paste_image({}, dir .. filename)
+        end,
       },
       -- Configuration for the floating keymaps help window
       keymaps_help = {
