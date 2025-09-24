@@ -5,9 +5,9 @@ return {
       require('project_nvim').setup {
         scope_chdir = 'tab',
         silent_chdir = false,
-        detection_methods = { 'manual' },
+        detection_methods = { 'lsp', 'pattern' },
         patterns = { '.project-root', '.envrc', '.git' },
-        manual_mode = true,
+        manual_mode = false,
       }
       local ts = require 'telescope'
       ts.load_extension 'projects'
