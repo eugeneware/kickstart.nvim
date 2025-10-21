@@ -33,6 +33,7 @@ return {
                 actions.close(prompt_bufnr)
                 vim.cmd('edit ' .. selection.value)
                 vim.cmd('Gvdiffsplit ' .. branch)
+                vim.cmd('wincmd h')
               end
 
               map('i', '<CR>', open_diff)
