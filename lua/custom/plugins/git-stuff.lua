@@ -6,13 +6,6 @@ return {
       local gitsigns = require 'gitsigns'
       gitsigns.setup()
 
-      vim.keymap.set('n', '[c', function()
-        gitsigns.nav_hunk 'prev'
-      end, { desc = 'Previous hunk' })
-      vim.keymap.set('n', ']c', function()
-        gitsigns.nav_hunk 'next'
-      end, { desc = 'Next hunk' })
-
       vim.keymap.set('n', '<leader>gb', gitsigns.blame, { desc = '[G]it [B]lame' })
 
       local ok, builtin = pcall(require, 'telescope.builtin')
