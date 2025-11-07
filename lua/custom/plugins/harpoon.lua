@@ -65,13 +65,13 @@ return {
     end, { desc = 'Harpoon file 10' })
 
     -- Navigate through harpoon list
-    vim.keymap.set('n', ']h', function()
+    vim.keymap.set('n', ']j', function()
       harpoon:list():next()
-    end, { desc = 'Next harpoon mark' })
+    end, { desc = 'Next harpoon [J]ump mark' })
 
-    vim.keymap.set('n', '[h', function()
+    vim.keymap.set('n', '[j', function()
       harpoon:list():prev()
-    end, { desc = 'Previous harpoon mark' })
+    end, { desc = 'Previous harpoon [J]ump mark' })
 
     -- Optional: Telescope integration for alternative UI
     -- Requires telescope.nvim to be installed
