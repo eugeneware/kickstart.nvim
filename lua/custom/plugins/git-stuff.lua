@@ -1,5 +1,22 @@
 return {
-  'tpope/vim-fugitive',
+  {
+    'tpope/vim-fugitive',
+    config = function()
+      -- Diff mode mappings (only active when in diff mode)
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'FugitiveChanged',
+        callback = function()
+          if vim.wo.diff then
+            local opts = { buffer = true, silent = true }
+            vim.keymap.set('n', 'gh', '<cmd>diffget //2<cr>', vim.tbl_extend('force', opts, { desc = 'Diff [G]et from left ([H]EAD)' }))
+            vim.keymap.set('n', 'gl', '<cmd>diffget //3<cr>', vim.tbl_extend('force', opts, { desc = 'Diff [G]et from right ([L])' }))
+            vim.keymap.set('n', 'du', '<cmd>diffupdate<cr>', vim.tbl_extend('force', opts, { desc = '[D]iff [U]pdate' }))
+            vim.keymap.set('n', 'dw', '<cmd>Gwrite<cr>', vim.tbl_extend('force', opts, { desc = '[D]iff [W]rite and stage' }))
+          end
+        end,
+      })
+    end,
+  },
   {
     -- Custom git keymaps (telescope integration)
     'nvim-telescope/telescope.nvim',
@@ -31,6 +48,11 @@ return {
           require('telescope.builtin').git_commits()
         end,
         desc = '[G]it [C]ommits (Telescope)',
+      },
+      {
+        '<leader>gd',
+        '<cmd>Gvdiffsplit<cr>',
+        desc = '[G]it [d]iff split',
       },
       {
         '<leader>gF',
