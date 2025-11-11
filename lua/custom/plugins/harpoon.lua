@@ -19,9 +19,9 @@ return {
       harpoon:list():remove()
     end, { desc = '[J]ump [D]elete from harpoon' })
 
-    vim.keymap.set('n', '<leader>e', function()
+    vim.keymap.set('n', '<leader>jj', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
-    end, { desc = '[E]xplore harpoon menu' })
+    end, { desc = '[J]ump to harpoon menu' })
 
     -- Quick navigation to harpooned files (1-9, 0 for 10)
     vim.keymap.set('n', '<leader>1', function()
