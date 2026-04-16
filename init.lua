@@ -886,15 +886,16 @@ require('lazy').setup({
 
       -- Prefer git instead of curl in order to improve connectivity in some environments
       require('nvim-treesitter.install').prefer_git = true
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup(opts)
 
-      -- There are additional nvim-treesitter modules that you can use to interact
-      -- with nvim-treesitter. You should go explore a few and see what interests you:
-      --
-      --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-      --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-      --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+      -- nvim-treesitter 1.0+ removed the nvim-treesitter.configs module.
+      -- Use the new API if available, fall back to legacy for older versions.
+      local ok, ts_configs = pcall(require, 'nvim-treesitter.configs')
+      if ok then
+        ---@diagnostic disable-next-line: missing-fields
+        ts_configs.setup(opts)
+      else
+        require('nvim-treesitter').setup(opts)
+      end
     end,
   },
 
