@@ -117,6 +117,23 @@ vim.opt.showmode = false
 --  See `:help 'clipboard'`
 vim.opt.clipboard = 'unnamedplus'
 
+-- Use Neovim's native OSC 52 provider in SSH/headless sessions where GUI
+-- clipboard tools such as xclip or wl-copy cannot reach the host clipboard.
+if vim.env.SSH_TTY or (not vim.env.DISPLAY and not vim.env.WAYLAND_DISPLAY) then
+  local osc52 = require 'vim.ui.clipboard.osc52'
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = osc52.copy '+',
+      ['*'] = osc52.copy '*',
+    },
+    paste = {
+      ['+'] = osc52.paste '+',
+      ['*'] = osc52.paste '*',
+    },
+  }
+end
+
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -162,6 +179,9 @@ vim.opt.scrolloff = 3
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Yank explicitly to the system clipboard, preserving the familiar <leader>y mapping.
+vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y', { desc = '[Y]ank to system clipboard' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
